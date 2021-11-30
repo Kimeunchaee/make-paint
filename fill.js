@@ -36,7 +36,7 @@ function draw() {
         // ctx.fill();
         // ctx.stroke();
 
-    // 투명도 globalAlpha 사용---------------------------------------------------------------------
+    // 투명도 globalAlpha 사용 ---------------------------------------------------------------------
         // // 배경을 그린다
         // ctx.fillStyle = '#FD0';
         // ctx.fillRect(0, 0, 75, 75);
@@ -58,29 +58,63 @@ function draw() {
         // ctx.fill();
         // }
 
-    // 투명도 rgba() 사용---------------------------------------------------------------------
+    // 투명도 rgba() 사용 ---------------------------------------------------------------------
 
-          // 배경을 그린다
-        ctx.fillStyle = 'rgb(255,221,0)';
-        ctx.fillRect(0,0,150,37.5);
-        ctx.fillStyle = 'rgb(102,204,0)';
-        ctx.fillRect(0,37.5,150,37.5);
-        ctx.fillStyle = 'rgb(0,153,255)';
-        ctx.fillRect(0,75,150,37.5);
-        ctx.fillStyle = 'rgb(255,51,0)';
-        ctx.fillRect(0,112.5,150,37.5);
+        // // 배경을 그린다
+        // ctx.fillStyle = 'rgb(255,221,0)';
+        // ctx.fillRect(0,0,150,37.5);
+        // ctx.fillStyle = 'rgb(102,204,0)';
+        // ctx.fillRect(0,37.5,150,37.5);
+        // ctx.fillStyle = 'rgb(0,153,255)';
+        // ctx.fillRect(0,75,150,37.5);
+        // ctx.fillStyle = 'rgb(255,51,0)';
+        // ctx.fillRect(0,112.5,150,37.5);
 
-        // 반투명한 사각형을 그린다
-        for (var i=0;i<10;i++){
-            ctx.fillStyle = 'rgba(255,255,255,'+(i+1)/10+')';
-            for (var j=0;j<4;j++){
-            ctx.fillRect(5+i*14,5+j*37.5,14,27.5)
-            }
-        }
+        // // 반투명한 사각형을 그린다
+        // for (var i=0;i<10;i++){
+        //     ctx.fillStyle = 'rgba(255,255,255,'+(i+1)/10+')';
+        //     for (var j=0;j<4;j++){
+        //     ctx.fillRect(5+i*14,5+j*37.5,14,27.5)
+        //     }
+        // }
 
+    // 선 두꼐 lineWidth ---------------------------------------------------------------------
+        // for (var i = 0; i < 10; i++){
+        //     ctx.lineWidth = 1 + i;
+        //     ctx.beginPath();
+        //     ctx.moveTo(5 + i * 14, 5);
+        //     ctx.lineTo(5 + i * 14, 140);
+        //     ctx.stroke();
+        //   }
 
+        // // 한개 그리기(세로)
+        // ctx.lineWidth = 5;
+        // ctx.beginPath();
+        // ctx.moveTo(10, 5);
+        // ctx.lineTo(10, 140);
+        // ctx.stroke();
 
+    // 선 끝점 모양 lineCap ---------------------------------------------------------------------
 
+        //  var lineCap = ['butt','round','square'];        // 배열로 선언
 
-        
+        // // 안내선을 그린다
+        // ctx.strokeStyle = '#09f';
+        // ctx.beginPath();
+        // ctx.moveTo(10, 10);
+        // ctx.lineTo(140, 10);
+        // ctx.moveTo(10, 140);
+        // ctx.lineTo(140, 140);
+        // ctx.stroke();
+
+        // // 선을 그린다
+        // ctx.strokeStyle = 'black';
+        // for (var i=0; i<lineCap.length; i++){    // 배열 길이만큼 반복
+        //     ctx.lineWidth = 15;
+        //     ctx.lineCap = lineCap[i];            // i번째 인덱스의 값(즉,문자열)로 들어감
+        //     ctx.beginPath();
+        //     ctx.moveTo(25 + i * 50, 10);         // i번째 인덱스 숫자(i)가 들어감
+        //     ctx.lineTo(25 + i * 50,140);         // i번째 인덱스 숫자(i)가 들어감
+        //     ctx.stroke();
+        // }
   }
