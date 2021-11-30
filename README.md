@@ -20,6 +20,10 @@ Canvas API를 사용해 구현한 페이지로 별도의 프로그램 필요없�
   
 <br/><br/>
 
+**예제 참고 문서**<br/>
+https://developer.mozilla.org/ko/docs/Web/API/Canvas_API
+<br/><br/>
+
 **Stack**<br/>
 WEB: HTML5, CSS3, JavaScript <br/>
 IDE: Visual Studio Code <br/>
