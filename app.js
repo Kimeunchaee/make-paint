@@ -7,7 +7,7 @@ function draw() {
     if (canvas.getContext) {
       var ctx = canvas.getContext('2d');
 
-    // 사각형 그리기 fillRect() ---------------------------------------------------------------------
+    // 사각형 그리기 rect(x, y, width, height) ---------------------------------------------------------------------
         // ctx.fillStyle = 'rgb(200,0,0)';   // 색상 설정
         // ctx.fillRect (10, 10, 60, 30);    // 좌표(10,10)에서 크기(50,50)의 사각형을 채운다.
 
@@ -100,28 +100,37 @@ function draw() {
         // }
 
     // 베지어 곡선 ---------------------------------------------------------------------
-   
-    // // 2차 곡선
-    // ctx.beginPath();
-    // ctx.moveTo(75, 25);
-    // ctx.quadraticCurveTo(25, 25, 25, 62.5);
-    // ctx.quadraticCurveTo(25, 100, 50, 100);
-    // ctx.quadraticCurveTo(50, 120, 30, 125);
-    // ctx.quadraticCurveTo(60, 120, 65, 100);
-    // ctx.quadraticCurveTo(125, 100, 125, 62.5);
-    // ctx.quadraticCurveTo(125, 25, 75, 25);
-    // ctx.stroke();
-    
-    // // 3차 곡선
-    // // Cubic curves example
-    // ctx.beginPath();
-    // ctx.moveTo(75, 40);
-    // ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
-    // ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
-    // ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
-    // ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
-    // ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
-    // ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
-    // ctx.fill();
+        // // 2차 곡선
+        // ctx.beginPath();
+        // ctx.moveTo(75, 25);
+        // ctx.quadraticCurveTo(25, 25, 25, 62.5);
+        // ctx.quadraticCurveTo(25, 100, 50, 100);
+        // ctx.quadraticCurveTo(50, 120, 30, 125);
+        // ctx.quadraticCurveTo(60, 120, 65, 100);
+        // ctx.quadraticCurveTo(125, 100, 125, 62.5);
+        // ctx.quadraticCurveTo(125, 25, 75, 25);
+        // ctx.stroke();
+        
+        // // 3차 곡선
+        // // Cubic curves example
+        // ctx.beginPath();
+        // ctx.moveTo(75, 40);
+        // ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
+        // ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+        // ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
+        // ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+        // ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+        // ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
+        // ctx.fill();
+
+
+
+
+
+
+
+
+
+
+ }
 }
-  }
