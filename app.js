@@ -33,17 +33,36 @@ function draw() {
         // stroke() 에는 적용되지 않음
 
     // 원 그리기 ---------------------------------------------------------------------
-        ctx.beginPath();
-        ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // 얼굴
-        ctx.moveTo(110, 75);
-        ctx.arc(75, 75, 35, 0, Math.PI, false);  // 입
-        ctx.moveTo(65, 65);
-        ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // 왼쪽 눈
-        ctx.moveTo(95, 65);
-        ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // 오른쪽 눈
-        ctx.stroke();
+        // ctx.beginPath();
+        // ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // 얼굴
+        // ctx.moveTo(110, 75);
+        // ctx.arc(75, 75, 35, 0, Math.PI, false);  // 입
+        // ctx.moveTo(65, 65);
+        // ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // 왼쪽 눈
+        // ctx.moveTo(95, 65);
+        // ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // 오른쪽 눈
+        // ctx.stroke();
 
     // 선 그리기 ---------------------------------------------------------------------
+        // ctx.beginPath();
+        // ctx.moveTo(25, 25);    // 시작점
+        // ctx.lineTo(105, 25);   // 끝점
+        // ctx.closePath();
+        // ctx.stroke();          // 선 그리기
 
+        // Filled triangle
+        ctx.beginPath();
+        ctx.moveTo(25, 25);
+        ctx.lineTo(105, 25);
+        ctx.lineTo(25, 105);
+        ctx.fill();
+
+        // Stroked triangle
+        ctx.beginPath();
+        ctx.moveTo(125, 125);
+        ctx.lineTo(125, 45);
+        ctx.lineTo(80, 125);
+        ctx.closePath();
+        ctx.stroke();
     }
   }
