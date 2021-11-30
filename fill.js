@@ -145,6 +145,36 @@ function draw() {
             
         // ctx.miterLimit = 30;
     
+    // 선 대시 ---------------------------------------------------------------------
+
+        // var offset = 0;
+
+        // function draw() {
+        //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+        //     ctx.setLineDash([4, 2]);
+        //     ctx.lineDashOffset = -offset;
+        //     ctx.strokeRect(10, 10, 100, 100);
+        // }
+        
+        // function march() {
+        //   offset++;
+        //   if (offset > 60) {        // 이동하는 거리? 선의 대시 배열이 어디서 시작될지 지정
+        //     offset = 0;
+        //   }
+        //   draw();
+        //   setTimeout(march, 60);      // 속도
+        // }
+        
+        // march();
     
+    // 안움직이는거 + 스타일 적용 연습 ---------------------------------------------------------------------
+        //   var offset = 0;
+
+        //   ctx.clearRect(0, 0, canvas.width, canvas.height);
+        //   ctx.lineWidth = 4;
+        //   ctx.strokeStyle = '#09f';
+        //   ctx.setLineDash([13, 20]);
+        //   ctx.lineDashOffset = -offset;
+        //   ctx.strokeRect(10, 10, 150, 100);
 
 }
