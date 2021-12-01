@@ -1,4 +1,3 @@
-
 // 캔버스 세팅
 const canvas = document.getElementById("canvasSetting");
 const ctx = canvas.getContext('2d');
@@ -16,10 +15,11 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 //선의 색, 채우기 색, 선의 굵기
 ctx.strokeStyle="#2c2c2c";
 ctx.fillStyle="#2c2c2c";
-ctx.lineWidth=2.5;
+ctx.lineWidth=4;
 
 //-----------------------------------------------------
 /* 유저가 마우스로 움직일 때 이벤트 설정 */
+let eraser = false;
 let painting = false;       // 그리기 
 let filling = false;        // fill, brush 모드 선택
 
@@ -49,20 +49,16 @@ function onMouseMove(event) {
     /* painting이 true 일때만 실행 = 그릴 때 = 클릭 후 */
     } else {
         // path 시작점을 이벤트가 발생한 위치로 설정
-        ctx.lineTo(x, y);   // 클릭 후 이벤트가 발생한 위치에 끝점 설정
-        ctx.stroke();       // 그리기
-    }
-}
-
-function handleCanvasClick() {
-    if(filling){
-        ctx.fillRect(0, 0, canvas.width, canvas.height)
+        ctx.lineTo(x, y);               // 클릭 후 이벤트가 발생한 위치에 끝점 설정
+        ctx.lineCap = "round";          // 끝부분 처리 - 둥글게, 선 두께를 반지름으로
+        ctx.lineJoin = "round";         // 접점부분 처리 - 둥글게, 선 두께를 반지름으로
+        ctx.stroke();                   // 그리기
     }
 }
 
 // handleModeClick() 따로 선언안하고 바로 사용
 // fill, brush 선택버튼 이벤트 설정
-const mode = document.getElementById("fillBtn");
+const mode = document.getElementById("brushBtn");
 if(mode) {
     mode.addEventListener("click", function(){
         if(filling === true) {            // == Equal Operator은 값만 비교 , === Strict Equal Operator은 값,데이터 타입까지 비교
@@ -80,6 +76,13 @@ if(mode) {
  function handleRightClick(event){    
      event.preventDefault();
  }
+
+ // 색 채우기
+ function handleCanvasClick() {
+    if(filling){
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+    }
+}
 
 if (canvas){
     // 마우스가 캔버스에서 클릭될때 (클릭시 그리기 시작)
@@ -126,6 +129,24 @@ if (clear) {
         ctx.beginPath();                                    // 컨텍스트 리셋
     });
 }
+
+// // -----------------------------------------------------
+// // erase 버튼 이벤트 설정
+// const erase = document.getElementById("eraseBtn");
+
+// function rgbToHex(rgb){
+//     return '#' + ((rgb[0] << 16) | (rgb[1] << 8) | rgb[2]).toString(16);
+//   };
+
+// function handleEraseClick(event) {
+//     ctx.strokeStyle = rgbToHex;
+//     ctx.fillStyle = rgbToHex;
+// }
+
+// if (erase) {
+//     erase.addEventListener("click", handleEraseClick)
+// }
+
 
 // -----------------------------------------------------
 // save 버튼 이벤트 설정
