@@ -18,6 +18,39 @@ ctx.strokeStyle="#2c2c2c";
 ctx.fillStyle="#2c2c2c";
 ctx.lineWidth=2.5;
 
+
+/* 유저가 마우스로 움직일 때 이벤트 설정 */
+//-----------------------------------------------------
+// 그리기
+let painting = false;
+
+function onMouseMove(event) {
+
+    // 마우스가 캔버스 위에 있을 때 현재 좌표를 저장
+    // 이벤트가 발생한 위치의 x, y 좌표
+    const x = event.offsetX;
+    const y = event.offsetY;
+
+    /* painting이 true 일때만 실행 = 그리기 전 = 클릭 전 */
+    if(!painting) {         
+        // path로 내 시작점을 알리는것, 클릭전 상황에서는 시작점이 없으므로 시작점을 알리는것
+        ctx.beginPath();     
+
+        // 캔버스의 좌표를 기준으로 이벤트가 발생한 위치에 시작점 설정
+        ctx.moveTo(x, y);
+
+    /* painting이 false 일때만 실행 = 그릴 때 = 클릭 후 */
+    } else {
+        // path 시작점을 이벤트가 발생한 위치로 설정
+        ctx.lineTo(x, y);   // 클릭 후 이벤트가 발생한 위치에 끝점 설정
+        ctx.stroke();       // 그리기
+}
+
+if (canvas){
+    //마우스가 캔버스에 무브할때 (해당 element에서 마우스를 움직였을 때)
+    canvas.addEventListener("mousemove", onMouseMove);
+}
+
 //-----------------------------------------------------
 // range 이벤트 설정
 // (슬라이드 바를 조정하여 범위 내의 숫자를 선택할 수 있는 입력 필드)
@@ -37,7 +70,6 @@ if(range) {
 // fill, brush 선택버튼 이벤트 설정
 const mode = document.getElementById("fillBtn");
 
-// let painting = false;
 let filling = false;
 
 if(mode) {
@@ -114,3 +146,4 @@ Array.from(colorControl).forEach(color =>
 // let d = (a, b) => { console.log( a * b ) };
 
 // (매개변수) => { 본문 }
+// -----------------------------------------------------
