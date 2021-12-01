@@ -17,4 +17,32 @@ function handleRangeChange(event) {
 if(range) {
     range.addEventListener("input", handleRangeChange);
 }
+
 //-----------------------------------------------------
+// fill, brush 선택버튼 이벤트 설정
+const mode = document.getElementById("fillBtn");
+
+let painting = false;
+let filling = false;
+
+if(mode) {
+    mode.addEventListener("click", function(){
+        if(filling === true) {            // == Equal Operator은 값만 비교 , === Strict Equal Operator은 값,데이터 타입까지 비교
+            filling = false;              // 채우기 실행?
+            mode.innerText = "Fill"       // innerText : 텍스트만 가져오기
+        } else {
+            filling = true;
+            mode.innerText = "brush"
+        }
+    });
+}
+
+// -----------------------------------------------------
+const claer = document.getElementById("clearBtn");
+
+
+
+
+
+// -----------------------------------------------------
+const saveBtn  = document.getElementById("saveBtn");
