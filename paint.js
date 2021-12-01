@@ -44,6 +44,7 @@ function onMouseMove(event) {
         // path 시작점을 이벤트가 발생한 위치로 설정
         ctx.lineTo(x, y);   // 클릭 후 이벤트가 발생한 위치에 끝점 설정
         ctx.stroke();       // 그리기
+    }
 }
 
 if (canvas){
