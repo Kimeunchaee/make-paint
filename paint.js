@@ -3,6 +3,21 @@
 const canvas = document.getElementById("canvasSetting");
 const ctx = canvas.getContext('2d');
 
+// convas 사이즈 , Pixel manipulating size
+// css는 눈에 보이는 사이즈 이고 여기서 지정해주는 사이즈는 픽셀사이즈
+canvas.width = 600;
+canvas.height = 600;
+
+// 바탕색 default 설정
+ctx.fillStyle="white";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+//context default 설정
+//선의 색, 채우기 색, 선의 굵기
+ctx.strokeStyle="#2c2c2c";
+ctx.fillStyle="#2c2c2c";
+ctx.lineWidth=2.5;
+
 //-----------------------------------------------------
 // range 이벤트 설정
 // (슬라이드 바를 조정하여 범위 내의 숫자를 선택할 수 있는 입력 필드)
@@ -72,3 +87,30 @@ if (saveBtn) {
 }
 
 // -----------------------------------------------------
+// color 선택버튼 이벤트 설정
+
+const colorControl = document.getElementsByClassName("colorControl");
+
+function handleColorClick(event) {
+    const color = event.target.style.backgroundColor;
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
+}
+
+// Array.from()
+// - 객체를 배열로 변환
+// - 반환값 : 원래 배열의 값을 복사한 새로운 array 인스턴스
+
+Array.from(colorControl).forEach(color => 
+    color.addEventListener("click", handleColorClick)
+);
+
+// // 화살표 함수를 사용하면 이벤트 핸들러 함수에서 this를 사용할 수 있다.
+// // this는 이벤트가 발생한 요소를 가리킨다.
+// var d = function (a, b) {
+//      console.log( a * b )
+// };
+
+// let d = (a, b) => { console.log( a * b ) };
+
+// (매개변수) => { 본문 }
