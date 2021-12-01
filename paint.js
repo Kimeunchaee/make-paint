@@ -22,7 +22,7 @@ if(range) {
 // fill, brush 선택버튼 이벤트 설정
 const mode = document.getElementById("fillBtn");
 
-let painting = false;
+// let painting = false;
 let filling = false;
 
 if(mode) {
@@ -38,11 +38,15 @@ if(mode) {
 }
 
 // -----------------------------------------------------
-const claer = document.getElementById("clearBtn");
+// clear 버튼 이벤트 설정
+const clear = document.getElementById("clearBtn");
 
-
-
-
+if (clear) {
+    clear.addEventListener("click", function(){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);   //픽셀정리
+        ctx.beginPath();                                    // 컨텍스트 리셋
+    });
+}
 
 // -----------------------------------------------------
 const saveBtn  = document.getElementById("saveBtn");
