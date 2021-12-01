@@ -1,1 +1,98 @@
-canvas { border: 1px solid black; }
+
+@font-face {
+    font-family: 'KyoboHand';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --form-color: rgb(255, 217, 0); /* CSS 변수로 색상 지정 */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+    background-color: wheat;
+    z-index: -9999;
+    margin: 0;
+    background-color: rgb(255, 255, 239);
+    background-image: url(img/bg6.jpg);
+    backdrop-filter: contrast(0.4);
+}
+
+.t-wrap {
+    text-align: center;
+}
+
+.title {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'KyoboHand';
+    font-size: 50px;
+    color: rgb(255, 217, 0);
+    text-shadow: rgb(37, 36, 34) 0.1em 0.05em 0.1em;
+}
+ 
+ canvas {
+    background: white;
+    border: 4px solid rgb(255, 217, 0);
+    border-top: 12px dotted rgb(255, 217, 0);
+    border-radius: 10px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    margin-top: 60px;
+    height: 460px;
+}
+
+.range_wrap {
+    margin-top: 86px;
+    margin-left: 10px;
+}
+
+.botton {
+    background-color:rgb(255, 217, 0);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border : none;
+    font-family: 'KyoboHand';
+    font-size: 13px;
+    font-weight: bolder;
+    margin: 5px;
+}
+
+.brush_size {
+    accent-color: var(--form-color); /* 폼 요소에 변수 색상 지정 */
+}
+
+input[type=range][orient=vertical] {
+    -webkit-appearance: slider-vertical; /* WebKit */
+    width: 12px;
+    height: 140px;
+    margin: 20px 19px;
+}
+
+
+.color_wrap {
+    position: relative;
+    margin: 15px;
+    margin-top: 38px;
+}
+
+.color {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    margin: 5px;
+}

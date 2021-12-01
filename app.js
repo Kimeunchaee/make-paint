@@ -5,8 +5,8 @@ const ctx = canvas.getContext('2d');
 
 // convas 사이즈 , Pixel manipulating size
 // css는 눈에 보이는 사이즈 이고 여기서 지정해주는 사이즈는 픽셀사이즈
-canvas.width = 600;
-canvas.height = 600;
+canvas.width = 700;
+canvas.height = 420;
 
 // 바탕색 default 설정
 ctx.fillStyle="white";
@@ -67,10 +67,10 @@ if(mode) {
     mode.addEventListener("click", function(){
         if(filling === true) {            // == Equal Operator은 값만 비교 , === Strict Equal Operator은 값,데이터 타입까지 비교
             filling = false;              // 채우기 실행?
-            mode.innerText = "Brush"       // innerText : 텍스트만 가져오기
+            mode.innerText = "그리기"       // innerText : 텍스트만 가져오기
         } else {
             filling = true;
-            mode.innerText = "Fill"
+            mode.innerText = "채우기"
         }
     });
 }
