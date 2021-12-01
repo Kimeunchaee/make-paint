@@ -1,4 +1,4 @@
-# 🎨 make-paint
+# 🎨 make-paint-project
 
 **프로젝트명**<br/>
 웹페이지에서 바로 그리는 나만의 스케치북!
@@ -9,7 +9,7 @@ Canvas API를 사용해 구현한 페이지로 별도의 프로그램 필요없�
 <br/><br/>
 
 **진행 기간**<br/>
-21.11.30 ~ 21.12.02 (3일)
+21.11.30 ~ 21.12.01 (2일)
 <br/><br/>
 
 **팀원**<br/>
@@ -17,15 +17,18 @@ Canvas API를 사용해 구현한 페이지로 별도의 프로그램 필요없�
 <br/><br/>
 
 **실행 파일**<br/>
-  
-<br/><br/>
+> index.html<br/>
+> - js/app.js<br/>
+> - css/style.css<br/>
+> - img/bg.jpg<br/>
 
-**예제 참고 문서**<br/>
+
+<br/>**예제 참고 문서**<br/>
 https://developer.mozilla.org/ko/docs/Web/API/Canvas_API
 <br/><br/>
 
 **Stack**<br/>
-WEB: HTML5, CSS3, JavaScript <br/>
-IDE: Visual Studio Code <br/>
-API: Canvas
+WEB : HTML5, CSS3, JavaScript <br/>
+IDE : Visual Studio Code <br/>
+API : Canvas
 <br/><br/>

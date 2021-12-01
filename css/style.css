@@ -23,7 +23,7 @@ body {
     z-index: -9999;
     margin: 0;
     background-color: rgb(255, 255, 239);
-    background-image: url(img/bg.jpg);
+    background-image: url(../img/bg.jpg);
     backdrop-filter: contrast(0.4);
 }
 
