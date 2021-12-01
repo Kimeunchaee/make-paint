@@ -67,10 +67,10 @@ if(mode) {
     mode.addEventListener("click", function(){
         if(filling === true) {            // == Equal Operator은 값만 비교 , === Strict Equal Operator은 값,데이터 타입까지 비교
             filling = false;              // 채우기 실행?
-            mode.innerText = "Fill"       // innerText : 텍스트만 가져오기
+            mode.innerText = "Brush"       // innerText : 텍스트만 가져오기
         } else {
             filling = true;
-            mode.innerText = "brush"
+            mode.innerText = "Fill"
         }
     });
 }
