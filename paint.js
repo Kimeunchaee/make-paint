@@ -18,11 +18,18 @@ ctx.strokeStyle="#2c2c2c";
 ctx.fillStyle="#2c2c2c";
 ctx.lineWidth=2.5;
 
-
-/* 유저가 마우스로 움직일 때 이벤트 설정 */
 //-----------------------------------------------------
-// 그리기
-let painting = false;
+/* 유저가 마우스로 움직일 때 이벤트 설정 */
+let painting = false;       // 그리기 
+let filling = false;        // fill, brush 모드 선택
+
+function stopPainting() {
+    painting = false;       // 그리기 전 = 클릭 전
+}
+
+function startPainting() {
+    painting = true;        // 그리고 있을 전 = 클릭 후
+}
 
 function onMouseMove(event) {
 
@@ -31,15 +38,15 @@ function onMouseMove(event) {
     const x = event.offsetX;
     const y = event.offsetY;
 
-    /* painting이 true 일때만 실행 = 그리기 전 = 클릭 전 */
+    /* painting이 false 일때만 실행 = 그리기 전 = 클릭 전 */
     if(!painting) {         
         // path로 내 시작점을 알리는것, 클릭전 상황에서는 시작점이 없으므로 시작점을 알리는것
         ctx.beginPath();     
 
-        // 캔버스의 좌표를 기준으로 이벤트가 발생한 위치에 시작점 설정
+        // 캔버스의 좌표를 기준으로 이벤트가 발생한 위치(즉, 현재 마우스 위치)에 시작점 설정
         ctx.moveTo(x, y);
 
-    /* painting이 false 일때만 실행 = 그릴 때 = 클릭 후 */
+    /* painting이 true 일때만 실행 = 그릴 때 = 클릭 후 */
     } else {
         // path 시작점을 이벤트가 발생한 위치로 설정
         ctx.lineTo(x, y);   // 클릭 후 이벤트가 발생한 위치에 끝점 설정
@@ -47,9 +54,45 @@ function onMouseMove(event) {
     }
 }
 
+function handleCanvasClick() {
+    if(filling){
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+    }
+}
+
+// handleModeClick() 따로 선언안하고 바로 사용
+// fill, brush 선택버튼 이벤트 설정
+const mode = document.getElementById("fillBtn");
+if(mode) {
+    mode.addEventListener("click", function(){
+        if(filling === true) {            // == Equal Operator은 값만 비교 , === Strict Equal Operator은 값,데이터 타입까지 비교
+            filling = false;              // 채우기 실행?
+            mode.innerText = "Fill"       // innerText : 텍스트만 가져오기
+        } else {
+            filling = true;
+            mode.innerText = "brush"
+        }
+    });
+}
+
 if (canvas){
-    //마우스가 캔버스에 무브할때 (해당 element에서 마우스를 움직였을 때)
+    // 마우스가 캔버스에서 클릭될때 (클릭시 그리기 시작)
+    canvas.addEventListener("mousedown", startPainting);
+
+    // 마우스가 캔버스에 무브할때 (해당 element에서 마우스를 움직였을 때)
     canvas.addEventListener("mousemove", onMouseMove);
+
+    // 마우스가 캔버스에서 클릭을 끝낼때 ==> 페인팅 멈춤 (클릭시 그리기 멈춤)
+    canvas.addEventListener("mouseup", stopPainting);
+
+    // 마우스가 캔버스를 벗어날때 ==> 페인팅 멈춤 ( 마우스를 벗어날때 그리기 멈춤)
+    canvas.addEventListener("mouseleave", stopPainting);
+
+    //캔버스를 클릭하면 색에 전체 채워짐 fill
+    canvas.addEventListener("click", handleCanvasClick);
+
+    //우클릭 감지
+    //canvas.addEventListener("contextmenu", handelCM);
 }
 
 //-----------------------------------------------------
@@ -65,24 +108,6 @@ function handleRangeChange(event) {
 
 if(range) {
     range.addEventListener("input", handleRangeChange);
-}
-
-//-----------------------------------------------------
-// fill, brush 선택버튼 이벤트 설정
-const mode = document.getElementById("fillBtn");
-
-let filling = false;
-
-if(mode) {
-    mode.addEventListener("click", function(){
-        if(filling === true) {            // == Equal Operator은 값만 비교 , === Strict Equal Operator은 값,데이터 타입까지 비교
-            filling = false;              // 채우기 실행?
-            mode.innerText = "Fill"       // innerText : 텍스트만 가져오기
-        } else {
-            filling = true;
-            mode.innerText = "brush"
-        }
-    });
 }
 
 // -----------------------------------------------------
@@ -121,7 +146,6 @@ if (saveBtn) {
 
 // -----------------------------------------------------
 // color 선택버튼 이벤트 설정
-
 const colorControl = document.getElementsByClassName("colorControl");
 
 function handleColorClick(event) {
