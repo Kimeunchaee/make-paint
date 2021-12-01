@@ -43,10 +43,32 @@ const clear = document.getElementById("clearBtn");
 
 if (clear) {
     clear.addEventListener("click", function(){
-        ctx.clearRect(0, 0, canvas.width, canvas.height);   //픽셀정리
+        ctx.clearRect(0, 0, canvas.width, canvas.height);   // 픽셀정리
         ctx.beginPath();                                    // 컨텍스트 리셋
     });
 }
 
 // -----------------------------------------------------
+// save 버튼 이벤트 설정
 const saveBtn  = document.getElementById("saveBtn");
+
+function handleSaveClick() {
+    const image = canvas.toDataURL();       // canvas의 이미지를 데이터로 변환
+    
+    // var fullQuality = image.replace(/^data:image\/png;base64,/, "1.0");     // 이미지 품질 높이기
+    // var mediumQuality = image.replace(/^data:image\/png;base64,/, "0.5");   // 이미지 품질 낮추기
+    // var lowQuality = image.replace(/^data:image\/png;base64,/, "0.1");      // 이미지 품질 낮추기
+
+    // .createElement()는 요소를 생성하는 함수
+    const link = document.createElement("a");      // 링크 생성, <a> </a>, saveBtn에 a태그 속성 추가
+    link.href = image;                             // href : 링크의 주소
+    link.download = "MySketchBook";                // download : 다운로드 파일 이름
+    link.click();                                  // click : 링크를 클릭하는 함수
+}
+
+
+if (saveBtn) {
+    saveBtn.addEventListener("click", handleSaveClick);
+}
+
+// -----------------------------------------------------
