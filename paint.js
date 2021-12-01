@@ -75,6 +75,12 @@ if(mode) {
     });
 }
 
+// 우클릭 금지
+// preventDefault : a 태그나 submit 버튼을 누르면 페이지가 이동되는 것을 막는다.
+ function handleRightClick(event){    
+     event.preventDefault();
+ }
+
 if (canvas){
     // 마우스가 캔버스에서 클릭될때 (클릭시 그리기 시작)
     canvas.addEventListener("mousedown", startPainting);
@@ -88,11 +94,11 @@ if (canvas){
     // 마우스가 캔버스를 벗어날때 ==> 페인팅 멈춤 ( 마우스를 벗어날때 그리기 멈춤)
     canvas.addEventListener("mouseleave", stopPainting);
 
-    //캔버스를 클릭하면 색에 전체 채워짐 fill
+    // 캔버스를 클릭하면 색에 전체 채워짐 fill
     canvas.addEventListener("click", handleCanvasClick);
 
-    //우클릭 감지
-    //canvas.addEventListener("contextmenu", handelCM);
+    // contextmenu : 우클릭을 감지하는 이벤트
+    canvas.addEventListener("contextmenu", handleRightClick);
 }
 
 //-----------------------------------------------------
@@ -146,7 +152,10 @@ if (saveBtn) {
 
 // -----------------------------------------------------
 // color 선택버튼 이벤트 설정
-const colorControl = document.getElementsByClassName("colorControl");
+
+// id 는 한번만 사용할 수 있는데, 컬러는 여러개이기 때문에
+// class 명으로 주고 getElementsByClassName 로 사용
+const colorControl = document.getElementsByClassName("colorBtn");
 
 function handleColorClick(event) {
     const color = event.target.style.backgroundColor;
